@@ -1,4 +1,4 @@
-FROM node:latest
+FROM abhishreep/nodeapp::latest
 
 WORKDIR /usr/src/app
 
