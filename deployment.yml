@@ -17,16 +17,17 @@ spec:
       containers:
       - name: nodeserver
         image: abhishreep/nodeapp:latest
+        volumeMounts:
+        - name: config
+          mountPath: /etc/config
         ports:
-          - containerPort: 3000
-        resources:
-          requests:
-            cpu: 200m
-            memory: 50Mi
-          limits:
-             cpu: 600m
-             memory: 100Mi
- 
+        - containerPort: 3000
+      volumes:
+      - name: config
+        configMap:
+        name: config
+
+             
 ---
 apiVersion: v1
 kind: Service
